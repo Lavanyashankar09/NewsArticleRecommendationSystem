@@ -1,7 +1,8 @@
 # news_article_recommender
 
 Built with  Python and Streamlit
-Tools : Jupyter Notebook, Docker, Heroku
+
+Tools - Jupyter Notebook, Docker, Heroku
 
 website - http://news-article-recommender.herokuapp.com/
 
