@@ -1,4 +1,8 @@
 # news_article_recommender
+
+Built with  Python and Streamlit
+Tools : Jupyter Notebook, Docker, Heroku
+
 website - http://news-article-recommender.herokuapp.com/
 
 AIM - recommend articles that best fit the user’s preferences
