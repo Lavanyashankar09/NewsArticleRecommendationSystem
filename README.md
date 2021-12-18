@@ -1,8 +1,8 @@
 # news_article_recommender
 
-Built with  Python and Streamlit
+Built with python, NumPy, pandas, seaborn, matplotlib, ploty, nltk, sklearn, pickle, streamlit.
 
-Tools - Jupyter Notebook, Docker, Heroku
+Tools: Jupyter Notebook, Spyder, Docker, Heroku.
 
 website - http://news-article-recommender.herokuapp.com/
 
