@@ -1,4 +1,5 @@
-<img width="734" alt="image" src="https://github.com/user-attachments/assets/7a0237ad-8b45-4e4c-9962-46198b159c4f" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/7a0237ad-8b45-4e4c-9962-46198b159c4f" />
+
 # news_article_recommender
 
 Built with python, NumPy, pandas, seaborn, matplotlib, ploty, nltk, sklearn, pickle, streamlit.
