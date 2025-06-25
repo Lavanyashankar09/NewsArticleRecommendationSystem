@@ -1,6 +1,6 @@
 
 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/d0d99f47-c412-4fc6-be84-f3e987f083ee" />
+<img width="389" alt="image" src="https://github.com/user-attachments/assets/d0d99f47-c412-4fc6-be84-f3e987f083ee" />
 
 
 # News Article Recommendation System
@@ -129,7 +129,7 @@ A modern web application that recommends news articles based on a headline input
 
 ### Architecture
 
-<img width="179" alt="image" src="https://github.com/user-attachments/assets/30ebd66e-353c-4b48-8c3b-0eb6911208dc" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/30ebd66e-353c-4b48-8c3b-0eb6911208dc" />
 
 
 ---
