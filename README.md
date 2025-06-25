@@ -127,11 +127,10 @@ A modern web application that recommends news articles based on a headline input
 
 ---
 
-### Usage
+### Architecture
 
-* Start typing or select a headline from the suggestions.
-* Click **Get Recommendations**.
-* View a curated list of similar articles instantly below the input.
+<img width="179" alt="image" src="https://github.com/user-attachments/assets/30ebd66e-353c-4b48-8c3b-0eb6911208dc" />
+
 
 ---
 
