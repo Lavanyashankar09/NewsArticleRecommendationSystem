@@ -1,103 +1,109 @@
+
+
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/7a0237ad-8b45-4e4c-9962-46198b159c4f" />
 
-# news_article_recommender
-
-Built with python, NumPy, pandas, seaborn, matplotlib, ploty, nltk, sklearn, pickle, streamlit.
-
-Tools: Jupyter Notebook, Spyder, Docker, Heroku.
-
-website - http://news-article-recommender.herokuapp.com/
-
-AIM - recommend articles that best fit the user’s preferences
-
-Steps:
-1. created a web scraper with cypress to retrieve the story's details from the New Yorker website. 
-2. Per day the program fetches 90 news articles and every other day it just appends the articles.
-3. I automated web scraping by building a CI/CD pipeline.
-4. I made this pipeline OS independent by using the cypress docker approach
-5. Employed the TF-IDF technique and Word2Vec word embeddings to recommned articles
-6. Word2Vec, the unsupervised model, did well in comparison.
-7. Deployed the app on Heroku and Docker
-
-
-# Part 2 - News Article Recommendation System (FastAPI+HTML)
-
-A web application that recommends news articles based on a headline input using FastAPI, TF-IDF vector similarity, and a simple HTML frontend.
+# News Article Recommendation System
 
 ---
 
-## Features
+## Old Version — Streamlit + Heroku
 
-* Input a news headline and get similar article recommendations.
-* Backend powered by **FastAPI** with similarity calculations using **scikit-learn**.
-* Frontend built with plain **HTML**, **CSS**, and JavaScript for a smooth user experience.
-* Containerized with **Docker** for easy deployment.
-* Can be deployed locally or on cloud platforms like **Google Cloud Run**.
+**Built with:** Python, NumPy, Pandas, Seaborn, Matplotlib, Plotly, NLTK, scikit-learn, Pickle, Streamlit
+**Tools:** Jupyter Notebook, Spyder, Docker, Heroku
+**Website:** [news-article-recommender.herokuapp.com](http://news-article-recommender.herokuapp.com/)
+
+**Goal:** Recommend articles that best fit user preferences.
+
+### Highlights:
+
+1. Developed a web scraper using Cypress to retrieve story details from *The New Yorker* website.
+2. Fetches 90 news articles daily and appends new articles every other day.
+3. Automated web scraping with a CI/CD pipeline.
+4. Made pipeline OS-independent using Cypress Docker containerization.
+5. Employed TF-IDF and Word2Vec embeddings for article recommendations.
+6. Found Word2Vec performed better in capturing semantic similarity.
+7. Deployed the application on Heroku and Docker for ease of access.
 
 ---
 
-## Project Structure
+## New Version — FastAPI + HTML + Google Cloud Run
+
+A modern web application that recommends news articles based on a headline input using FastAPI and TF-IDF similarity, with a clean HTML/CSS/JavaScript frontend.
+
+---
+
+### Features
+
+* Enter a news headline and get real-time article recommendations.
+* Backend powered by **FastAPI** with efficient similarity computations using **scikit-learn**.
+* Minimalistic frontend using plain **HTML**, **CSS**, and JavaScript for a responsive user experience.
+* Fully containerized with **Docker** for portability and ease of deployment.
+* Easily deployable locally or on cloud platforms like **Google Cloud Run**.
+
+---
+
+### Project Structure
 
 ```
-├── Backend/           # FastAPI backend code
-├── Frontend/          # HTML, CSS, JavaScript files
-├── Pickle/            # Preprocessed data and TF-IDF features saved as pickle files
+├── Backend/           # FastAPI backend API code
+├── Frontend/          # HTML, CSS, and JavaScript frontend files
+├── Pickle/            # Serialized data and TF-IDF model pickle files
 ├── Dockerfile         # Docker configuration for containerizing the app
-├── README.md          # This documentation
+├── README.md          # Project documentation (this file)
 └── requirements.txt   # Python dependencies (optional)
 ```
 
 ---
 
-## Getting Started
+### Getting Started
 
-### Prerequisites
+#### Prerequisites
 
-* Python 3.7+
-* Docker (for containerized setup)
-* (Optional) Google Cloud SDK for deployment
+* Python 3.7 or higher
+* Docker (for containerized deployment)
+* (Optional) Google Cloud SDK for deployment to Cloud Run
 
 ---
 
-### Run Locally without Docker
+#### Run Locally Without Docker
 
-1. Install dependencies:
+1. Install required Python packages:
 
    ```bash
    pip install fastapi uvicorn scikit-learn pandas numpy python-multipart
    ```
 
-2. Start the FastAPI backend:
+2. Start the FastAPI backend server:
 
    ```bash
    uvicorn Backend.app:app --reload --port 8080
    ```
 
-3. Open `Frontend/index.html` in your browser to use the app.
+3. Open `Frontend/index.html` in your browser to access the UI.
 
 ---
 
-### Run with Docker
+#### Run With Docker
 
-1. Build Docker image:
+1. Build the Docker image:
 
    ```bash
    docker build -t news-recommendation-app .
    ```
 
-2. Run Docker container:
+2. Run the container locally:
 
    ```bash
    docker run -p 8080:8080 news-recommendation-app
    ```
 
-3. Access app at: [http://localhost:8080](http://localhost:8080)
+3. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ---
 
-### Deploy on Google Cloud Run
+#### Deploy on Google Cloud Run
 
-1. Configure your GCP project and build image:
+1. Configure your GCP project and build the Docker image:
 
    ```bash
    gcloud config set project YOUR_PROJECT_ID
@@ -105,7 +111,7 @@ A web application that recommends news articles based on a headline input using 
    docker push gcr.io/YOUR_PROJECT_ID/news-recommendation-app
    ```
 
-2. Deploy to Cloud Run:
+2. Deploy the container to Cloud Run:
 
    ```bash
    gcloud run deploy news-recommendation-app \
@@ -116,24 +122,24 @@ A web application that recommends news articles based on a headline input using 
        --port 8080
    ```
 
-3. Open the URL provided by Cloud Run.
+3. Access your deployed app via the URL provided by Cloud Run.
 
 ---
 
-## Usage
+### Usage
 
-* Enter or select a headline in the input box.
+* Start typing or select a headline from the suggestions.
 * Click **Get Recommendations**.
-* View recommended similar articles below.
+* View a curated list of similar articles instantly below the input.
 
 ---
 
-## Tech Stack
+### Tech Stack
 
-* **FastAPI** — Backend API framework
-* **scikit-learn** — TF-IDF vectorization and similarity calculations
-* **HTML/CSS/JavaScript** — Frontend UI
-* **Docker** — Containerization
-* **Google Cloud Run** (optional) — Cloud deployment
+* **FastAPI** — Fast and modern web API framework
+* **scikit-learn / nltk** — TF-IDF vectorization and cosine similarity calculations
+* **HTML / CSS / JavaScript** — Frontend user interface
+* **Docker** — Containerization for consistent environments
+* **Google Cloud Run** — Serverless container hosting (optional cloud deployment)
 
 ---
