@@ -1,6 +1,7 @@
 
 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/7a0237ad-8b45-4e4c-9962-46198b159c4f" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/d0d99f47-c412-4fc6-be84-f3e987f083ee" />
+
 
 # News Article Recommendation System
 
