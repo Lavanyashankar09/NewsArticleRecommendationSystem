@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Article Recommendation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            color: #333;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+
+        input[list], button {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1.5px solid #2980b9;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[list]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1f618d;
+        }
+
+        #result {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #34495e;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Article Recommendation System</h1>
+
+    <label for="headline">Enter a headline:</label>
+    <input list="headlines" id="headline" name="headline" placeholder="Start typing or select headline..." />
+    <datalist id="headlines">
+        <option value="A Sibling’s Wedding Toast">
+        <option value="The Year in Climate">
+        <option value="Rebelling Against the Word Processor">
+        <!-- Add more options here -->
+    </datalist>
+    <button onclick="getRecommendations()">Get Recommendations</button>
+
+    <h2 id="result"></h2>
+    <ul id="recommendations"></ul>
+
+<script>
+async function getRecommendations() {
+    const headline = document.getElementById("headline").value;
+    if (!headline) {
+        alert("Please enter a headline!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("headline", headline);
+
+    const response = await fetch("/recommend", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        if (data.error) {
+            document.getElementById("result").innerText = data.error;
+            document.getElementById("recommendations").innerHTML = "";
+        } else {
+            document.getElementById("result").innerText = `Recommendations for: "${data.input_headline}"`;
+            const ul = document.getElementById("recommendations");
+            ul.innerHTML = "";
+            data.recommendations.forEach(item => {
+                let li = document.createElement("li");
+                li.innerText = item;
+                ul.appendChild(li);
+            });
+        }
+    } else {
+        alert("Error calling the API");
+    }
+}
+</script>
+</body>
+</html>
